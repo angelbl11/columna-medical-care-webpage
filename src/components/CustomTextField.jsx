@@ -1,7 +1,15 @@
 import { Box, TextField } from "@mui/material";
 import React from "react";
 
-const CustomTextField = ({ label, inputMode, placeholder, type }) => {
+const CustomTextField = ({
+  label,
+  placeholder,
+  type,
+  field,
+  error,
+  helperText,
+  errorMsg,
+}) => {
   return (
     <Box
       display={"flex"}
@@ -22,13 +30,21 @@ const CustomTextField = ({ label, inputMode, placeholder, type }) => {
         {label}
       </text>
       <TextField
+        error={error}
+        InputProps={{ disableUnderline: error ? false : true }}
         hiddenLabel
+        helperText={helperText}
+        margin="dense"
+        {...field}
         variant="filled"
         placeholder={placeholder}
-        inputMode={inputMode}
         type={type}
-        style={{ backgroundColor: "#F5F7FB", borderRadius: "10px" }}
+        style={{
+          backgroundColor: "#F5F7FB",
+          borderRadius: "10px",
+        }}
       />
+      {error && <text style={{marginLeft: 5, marginTop:2,fontSize: 12, color:"#C23F38"}}>{errorMsg}</text>}
     </Box>
   );
 };

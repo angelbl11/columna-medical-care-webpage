@@ -1,8 +1,8 @@
 import React from "react";
-import LoginPage from "./pages/LoginPage";
+import AppRouter from "./routes/AppRouter";
 
 const App = () => {
-  return <LoginPage></LoginPage>;
+  return <AppRouter />;
 };
 
 export default App;
